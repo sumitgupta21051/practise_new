@@ -3,6 +3,10 @@ name: practise pipeline
 on:
   workflow_dispatch:
 
+env:
+  first_name: sumit
+  well: kamcho?
+
 jobs:
   my_first_job:
     name: my first job
@@ -11,7 +15,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v7.0.0
     - name: 1st task hello
-      run: echo "hello sumit . kamcho?"
+      run: echo "hello $first_name . $well?"
     - name: 2nd task list file
       run: ls -a
 
