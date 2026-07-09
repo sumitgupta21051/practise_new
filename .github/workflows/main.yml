@@ -8,9 +8,15 @@ jobs:
     name: my first job
     runs-on: ubuntu-latest
     steps:
-    -  name: 1st task hello
-       run: echo "hello sumit . kamcho?"
-    -  name: 2nd task list file
-       run: ls -a
+    - name: Checkout
+      uses: actions/checkout@v7.0.0
+    - name: 1st task hello
+      run: echo "hello sumit . kamcho?"
+    - name: 2nd task list file
+      run: ls -a
+
+
+
+       
        
        
