@@ -14,7 +14,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v7.0.0
     - name: 1st task hello
-      run: echo "hello {{ vars.FIRST_NAME}} . $well?"
+      run: echo "hello ${{ vars.FIRST_NAME}} . $well?"
     - name: 2nd task list file
       run: ls -a
 
