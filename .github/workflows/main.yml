@@ -8,6 +8,8 @@ jobs:
     name: my first job
     runs-on: ubuntu-latest
     steps:
-    -  name: 1st task
+    -  name: 1st task hello
        run: echo "hello sumit . kamcho?"
+    -  name: 2nd task list file
+       run: ls -a
        
