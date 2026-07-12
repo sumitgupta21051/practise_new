@@ -3,8 +3,8 @@ name: practise pipeline
 on:
   workflow_dispatch:
 
-env:
-  well: kamcho?
+# env:
+#   well: kamcho?
 
 jobs:
   my_first_job:
@@ -14,7 +14,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v7.0.0
     - name: 1st task hello
-      run: echo "hello ${{ vars.FIRST_NAME}} . $well?"
+
+      run: echo "hello ${{ vars.FIRST_NAME}} . ${{ secrets.last_name }}"
     - name: 2nd task list file
       run: ls -a
 
