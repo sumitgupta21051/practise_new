@@ -2,14 +2,14 @@ name: practise pipeline
 
 on:
   workflow_dispatch:
-  push: 
   pull_request: 
     branches: 
     - main
   
 
-# env:
-#   well: kamcho?
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   terraform_init_plan:
@@ -26,9 +26,18 @@ jobs:
     - name: terraform fmt
       run: terraform fmt
       working-directory: env/dev
-    - uses: azure/login@v3
+    # - uses: azure/login@v3
+    #   with:
+    #     creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Azure login
+      uses: azure/login@v3
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+
     - name: terraform plan
       run: terraform plan
       working-directory: env/dev
