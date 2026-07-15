@@ -2,22 +2,28 @@ name: practise pipeline
 
 on:
   workflow_dispatch:
+  push: 
+  pull_request: 
+    branches: 
+    - main
+  
 
 # env:
 #   well: kamcho?
 
 jobs:
-  my_first_job:
-    name: my first job
+  terraform_init_plan:
+    name: terraform init & plan
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v7.0.0
-    - name: 1st task hello
-
-      run: echo "hello ${{ vars.FIRST_NAME}} . ${{ secrets.last_name }}"
-    - name: 2nd task list file
-      run: ls -a
+    - name: terraform init
+      run: terraform init
+    - name: terraform fmt
+      run: terraform fmt
+    - name: terraform plan
+      run: terraform plan
+      
+      
 
 
 
