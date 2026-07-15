@@ -26,6 +26,9 @@ jobs:
     - name: terraform fmt
       run: terraform fmt
       working-directory: env/dev
+    - uses: azure/login@v3
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: terraform plan
       run: terraform plan
       working-directory: env/dev
