@@ -16,6 +16,8 @@ jobs:
     name: terraform init & plan
     runs-on: ubuntu-latest
     steps:
+    - name: terraform setup
+      uses: hashicorp/setup-terraform@v4
     - name: terraform init
       run: terraform init
     - name: terraform fmt
