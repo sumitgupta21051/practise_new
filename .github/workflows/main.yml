@@ -20,11 +20,13 @@ jobs:
       uses: hashicorp/setup-terraform@v4
     - name: terraform init
       run: terraform init
+      working-directory: env/dev
     - name: terraform fmt
       run: terraform fmt
+      working-directory: env/dev
     - name: terraform plan
       run: terraform plan
-      
+      working-directory: env/dev
       
 
 
