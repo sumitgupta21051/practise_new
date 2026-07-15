@@ -18,6 +18,8 @@ jobs:
     steps:
     - name: terraform setup
       uses: hashicorp/setup-terraform@v4
+    - name: terraform checkout
+      uses: actions/checkout@v7
     - name: terraform init
       run: terraform init
       working-directory: env/dev
